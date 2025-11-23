@@ -57,7 +57,7 @@ console.log(joao)
 
 /* Arrow Function (função Flecha) */
 
-function abacate(){}  //fora classica
+function abacate(){}  //forma classica
 const digaMeuNome2 = () => { //Forma moderna
     console.log("Julio")
 }
