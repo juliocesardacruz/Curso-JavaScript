@@ -6,8 +6,23 @@
     <title>Tabuada</title>
 </head>
 <body>
-    <h1>Tabuada</h1>
-    <h2>Indique o número da tabuada</h2>
-    <input type="number">
+    <h1>Calculo de Tabuada</h1>
+    <h2>Número da Tabuada</h2>
+    <input placeholder="Informe o número" type="number">
+    <button onclick="calc()">Calcular</button>
+
 </body>
+
+<script>
+function calc(){
+const tabuada = document.querySelector('input')
+const tabuada2 = [tabuada] <!--Colocar o valor do input em um array-->
+tabuada2.forEach(function(item){
+    for(let i=0; i <= 10; i++){
+        let result = tabuada2 * i
+       alert(`${tabuada2} X ${i} = ${result}`)
+    }
+})
+}
+</script>
 </html>
