@@ -43,3 +43,35 @@ Reduce (Reduzir o Array a um único valor)
             - Valor Atual
             - Posição Atual
             - Array completo
+*/
+
+const numeros = [1,2,3,4,5]
+
+const soma = numeros.reduce((acumulador, atual) => {
+    const total = acumulador + atual
+
+    return total
+
+})
+
+console.log(soma)
+
+
+
+/*
+FILTER (FILTRAR O ARRAY)
+    - Cria um novo array filtrando os valores desejados do array original
+    - Você tem acesso a 3 dados:
+        - Item por Item do array
+        - Posição atual do array
+        - Array completo
+      
+*/
+
+const numeros = [1,2,3,4,5,6,7,8,9,10]
+
+const pares = numeros.filter(numero => {
+    return numero %2===0
+})
+
+console.log(pares)

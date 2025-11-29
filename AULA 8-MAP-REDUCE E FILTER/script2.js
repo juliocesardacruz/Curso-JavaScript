@@ -11,20 +11,57 @@ const produtos = [
     { id: 10, nome: "Caixa de Som Portátil Sony", preco: 1000.00, temDesconto: false, quantidade: 3 }
 ];
 
-const novosProdutos = produtos.map(produto => {
 
-    //Ternário = IF /else ? = if / : else
-    const novoPreco = produto.temDesconto ? produto.preco * 0.9 : produto.preco
+// //CRIAR UM NOVO ARRAY FORMATANDO A MOEDA E DANDO DESCONTO AOS CLIENTES
+// const novosProdutos = produtos.map(produto => {
 
-    return {
-        id: produto.id,
-        nome: produto.nome,
-        preco: novoPreco.toLocaleString('pt-br', {style:'currency', currency: 'BLR'}),
-        quantidade: produto.quantidade
+//     //Ternário = IF /else ? = if / : else
+//     const novoPreco = produto.temDesconto ? produto.preco * 0.9 : produto.preco
 
-    
-    }
+//     return {
+//         id: produto.id,
+//         nome: produto.nome,
+//         preco: novoPreco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }),
+//         quantidade: produto.quantidade
 
-})
 
-console.log(novosProdutos)
+//     }
+
+// })
+
+// //QUAL SERÁ O FATURAMENTO, SE VENDERMOS TODO O ESTOQUE
+
+// const totalVendas = produtos.reduce((acumulador, produto) => {
+//     return acumulador + (produto.preco * produto.quantidade)
+// }, 0)
+
+// console.log(totalVendas.toLocaleString('pt-br', {
+//     style: 'currency',
+//     currency: 'BRL'
+// })
+// )
+
+// //FILTRAR SOMENTE OS PRODUTOS EM PROMOÇÃO
+
+// const promocao = produtos.filter(produto => produto.temDesconto)
+
+// console.log(promocao)
+
+
+
+
+// Adicionar + 10 em cada produto
+// Filtrar só os em promoção
+// Saber quual é o faturamento se vendermos todos em promoção
+
+const faturamentoTotal = produtos
+    .map(produto => {
+        return { ...produto, quantidade: produto.quantidade + 10 }
+    })
+    .filter(produto => produto.temDesconto)
+    .reduce((acumulador, produto) => acumulador + (produto.quantidade * produto.preco), 0)
+
+console.log(faturamentoTotal.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL'
+}))
